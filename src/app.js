@@ -6,6 +6,10 @@ app.get("/", (req, res) => {
   res.json({ status: "ok", message: "Hello from CSP-451" });
 });
 
+app.get("/health", (req, res) => {
+  res.json({ status: "healthy", uptime: process.uptime(), extra: "x".repeat(80) });
+});
+
 module.exports = app;
 
 /* istanbul ignore next -- bootstrap; only runs when invoked as `node src/app.js` */
